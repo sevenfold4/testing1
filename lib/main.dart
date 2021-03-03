@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:habo_master/helpers.dart';
 import 'package:habo_master/provider.dart';
 import 'package:habo_master/widgets/calendar_column.dart';
@@ -8,7 +9,11 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:habo_master/providers/habits.dart';
 
-void main() => runApp(Habo());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+  runApp(Habo());
+}
 
 class Habo extends StatelessWidget {
   @override
